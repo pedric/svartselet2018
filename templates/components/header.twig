@@ -1,0 +1,13 @@
+<header class="header" data-module="togglemenu">
+
+	<a class="logoLink" href="/">{% include 'components/logo.twig' %}</a>
+	
+	{% include 'components/burger.twig' %}
+
+</header>
+
+<div class="mainMenu__wrapper js-menu-toggle">
+	<nav class="mainMenu" role="navigation" aria-hidden="true">
+		{% include "menu.twig" with {'menu': menu.get_items} %}
+	</nav>
+</div>

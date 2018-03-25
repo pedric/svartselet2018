@@ -1,0 +1,30 @@
+
+{% for block in blocks %}
+	<div 
+		class="block grid-col grid-col-{{block.width}}" 
+		style="background-color:{{block.background_color}};color:{{block.text_color}};align-items:{{block.align_items}};justify-content:{{block.justify_content}};text-align:{{block.text_align}};min-height:{{block.min_height}};">
+
+		{# {% if block.fullwidth_heading %}data-module="fullwidthtextelement"{% endif %} #}
+
+		{% if block.background_image %}
+			<div class="block__bgImage" style="background-image:url({{TimberImage(block.background_image).src|resize(1200, 1200)}});"></div>
+		{% endif %}
+
+		<div class="block__content {% if block.large_heading %}block__content--largeTitle{% endif %}">
+			
+			{% if block.html_content %}
+				{{ block.html_content }}
+			{% else %}
+				{{ block.content }}
+			{% endif %}
+
+			{% if block.embed %}
+				<div class="u-responsive-iframe-wrapper">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/{{block.embed}}?rel=0&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				</div>
+			{% endif %}
+
+		</div>
+		
+	</div>
+{% endfor %}
