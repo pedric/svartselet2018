@@ -22,7 +22,7 @@
 
 .burger.active {
 	.burger__bar {
-		background: $color-white;
+		background: $color-white !important;
 		&:nth-child(1) { top: 50%; transform: translateY(-50%); }
 		&:nth-child(2) { top: 50%; transform: translateY(-50%); }
 		&:nth-child(3) { top: 50%; transform: translateY(-50%); }

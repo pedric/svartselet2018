@@ -42,5 +42,11 @@
 		{# Uncomment on local dev #}
 		<script src="/javascripts/app.js" defer=""></script>
     <script src="{{ site.theme.link }}/assets/javascripts/app.js" defer=""></script>
+    {# Reveal #}
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <script>
+    	window.sr = ScrollReveal({ reset: true });
+			sr.reveal('.reveal', { duration: 500, easing: 'cubic-bezier(0.6, 0.2, 0.1, 1)' });
+    </script>
 	</body>
 </html>

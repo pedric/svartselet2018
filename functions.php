@@ -87,11 +87,25 @@ class StarterSite extends TimberSite {
 	}
 
 	function add_to_context( $context ) {
-		$context['foo'] = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
+		// Blocks
+		$blocks = get_field('dynamic_block');
+		$context['blocks'] = $blocks;
+		// Page settings
+		$color = get_field('menu_color');
+		$context['menuColor'] = $color;
+		$bg_color = get_field('bg_color');
+		$context['bgColor'] = $bg_color;
+		// Page settings open graph
+		$ogTitle = get_field('share_title');
+		$context['ogTitle'] = $ogTitle;
+		$ogDescription = get_field('share_description');
+		$context['ogDescription'] = $ogDescription;
+		$ogImage = get_field('share_image');
+		$context['ogImage'] = $ogImage;
+		// Menu and this
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
+		
 		return $context;
 	}
 

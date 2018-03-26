@@ -17,6 +17,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# Open graph #}
+    {% if ogTitle %}<meta property="og:title" content="{{ogTitle}}" />{% endif %}
+    {% if ogDescription %}<meta property="og:description" content="{{ogDescription}}" />{% endif %}
+    {% if ogImage.url %}<meta property="og:image" content="{{ogImage.url}}" />{% endif %}
+    {# !end.Open graph#}
     <link rel="author" href="{{ site.theme.link }}/humans.txt" />
     <link rel="pingback" href="{{ site.pingback_url }}" />
     {{function('wp_head')}}

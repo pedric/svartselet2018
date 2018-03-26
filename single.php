@@ -13,14 +13,6 @@ $context = Timber::get_context();
 $post = Timber::query_post();
 $context['post'] = $post;
 
-$blocks = $post->get_field('dynamic_block');
-$context['blocks'] = $blocks;
-
-$color = $post->get_field('menu_color');
-$context['menuColor'] = $color;
-$bg_color = $post->get_field('bg_color');
-$context['bgColor'] = $bg_color;
-
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {

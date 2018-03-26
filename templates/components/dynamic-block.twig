@@ -1,8 +1,8 @@
 
 {% for block in blocks %}
 	<div 
-		class="block grid-col grid-col-{{block.width}}" 
-		style="background-color:{{block.background_color}};color:{{block.text_color}};align-items:{{block.align_items}};justify-content:{{block.justify_content}};text-align:{{block.text_align}};min-height:{{block.min_height}};">
+		class="block grid-col grid-col-{{block.width}} {% if block.desktop_only %}block--desktopOnly{% endif %}" 
+		style="background-color:{{block.background_color}};color:{{block.text_color}};align-items:{{block.align_items}};justify-content:{{block.justify_content}};text-align:{{block.text_align}};min-height:{{block.min_height}};{% if block.gradient %}{{block.gradient}}{% endif %}">
 
 		{# {% if block.fullwidth_heading %}data-module="fullwidthtextelement"{% endif %} #}
 
@@ -10,19 +10,25 @@
 			<div class="block__bgImage" style="background-image:url({{TimberImage(block.background_image).src|resize(1200, 1200)}});"></div>
 		{% endif %}
 
-		<div class="block__content {% if block.large_heading %}block__content--largeTitle{% endif %}">
+		<div class="block__content {% if block.reveal %}reveal{% endif %} {% if block.large_heading %}block__content--largeTitle{% endif %}">
+
+			{% if block.link.url and not block.link.title %}<a class="block__blockLink" href="{{block.link.url}}">{% endif %}
 			
-			{% if block.html_content %}
-				{{ block.html_content }}
-			{% else %}
-				{{ block.content }}
-			{% endif %}
+				{% if block.html_content %}
+					{{ block.html_content }}
+				{% else %}
+					{{ block.content }}
+				{% endif %}
+
+			{% if block.link.url and not block.link.title %}</a>{% endif %}
 
 			{% if block.embed %}
 				<div class="u-responsive-iframe-wrapper">
 					<iframe width="560" height="315" src="https://www.youtube.com/embed/{{block.embed}}?rel=0&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				</div>
 			{% endif %}
+
+			{% if block.link.title %}<a class="block__link" href="{{block.link.url}}">{{ block.link.title }}</a>{% endif %}
 
 		</div>
 		

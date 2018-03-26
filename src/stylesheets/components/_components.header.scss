@@ -1,6 +1,6 @@
 .header {
   position: absolute;
-  height: 70px;
+  height: 100px;
   top: 0;
   left: 0;
   right: 0;
@@ -12,11 +12,16 @@
 
 	.logoLink {
 		width: 110px;
-    padding: $spacing;
-    height: 50px;
+    padding: $spacing 0;
+    height: 56px;
+    border-bottom: none;
 	}
 
-	.logoSvg {}
+  .logoSvg { transition: all 0.25s ease-in-out; }
+
+  &.active {
+    .logoSvg { fill: $color-white !important; }
+  }
 
 	.burger__wrapper {
 

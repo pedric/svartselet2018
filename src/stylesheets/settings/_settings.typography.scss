@@ -3,22 +3,12 @@
    ========================================================================== */
 /* Font face / import */
 // @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700, 900');
-@import url('https://fonts.googleapis.com/css?family=Lato:900|Poppins:300,400,800');
+@import url('https://fonts.googleapis.com/css?family=Lato:900|Poppins:300,800|IBM+Plex+Sans:100');
+// @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,400,700');
 
 /* Fonts */
 $font-regular: 'Poppins', 'Lato', 'Helvetica Neue', Helvetica, sans-serif !default;
 $font-mono: 'Courier New', courier, serif !default;
-
-/* Size */
-$global-font-size: 1rem !default;
-$font-size-largest: 2.369rem !default;
-$font-size-larger: 1.777rem !default;
-$font-size-large: 1.333rem !default;
-$font-size-medium: 1.25rem !default;
-$font-size-small: 0.8889rem !default;
-$font-size-smaller: 0.7778rem !default;
-$font-size-smallest: 0.667rem !default;
-$font-size-menu-large: 1.5rem !default;
 
 /* Line height */
 $global-line-height: 1.5 !default;

@@ -4,6 +4,7 @@ export default class ToggleMenu {
 
     let that = this
 
+    this.element = element
   	this.menu = document.getElementsByClassName('js-menu-toggle')[0]
   	this.burgerWrapper = element.getElementsByClassName('burger__wrapper')[0]
   	this.burger = element.getElementsByClassName('burger')[0]
@@ -17,6 +18,7 @@ export default class ToggleMenu {
 		this.burgerWrapper.classList.remove('active')
 		this.menu.classList.remove('active')
 		this.burger.classList.remove('active')
+		this.element.classList.remove('active')
     this.burgerWrapper.setAttribute('aria-hidden', 'true')
     this.menu.setAttribute('aria-hidden', 'true')
 	}
@@ -25,6 +27,7 @@ export default class ToggleMenu {
 		this.burgerWrapper.classList.add('active', 'true')
 		this.menu.classList.add('active')
 		this.burger.classList.add('active')
+		this.element.classList.add('active')
     this.burgerWrapper.setAttribute('aria-hidden', 'false')
     this.menu.setAttribute('aria-hidden', 'false')
 	}

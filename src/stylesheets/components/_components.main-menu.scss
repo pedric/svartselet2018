@@ -32,7 +32,7 @@
   justify-content: flex-end;
   align-items: flex-start;
   height: 100%;
-  padding: 70px 32px;
+  padding: 80px 32px 0;
 
 	ul {
 		list-style: none;
@@ -50,6 +50,7 @@
 				font-size: 3.0rem;
 				font-weight: 900;
 				text-decoration: none;
+				border-bottom: none;
 
 				&:after {
 					content: '';
