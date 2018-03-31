@@ -18,7 +18,7 @@
 	background: linear-gradient(45deg, rgba(36,36,36,1) 0%, rgba(0,0,0,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#242424', endColorstr='#000000', GradientType=1 );
 
-	transition: all 0.35s ease-in-out;
+	transition: opacity 0.25s ease-in-out;
 
 	&.active {
 		top: 0;
@@ -33,6 +33,19 @@
   align-items: flex-start;
   height: 100%;
   padding: 80px 32px 0;
+  z-index: 999;
+
+	// Animation
+	opacity: 0;
+  position: absolute;
+  top: 100vh;
+  right: 0;
+  transition: all 0.25s ease-in-out;
+
+  &.active {
+		top: 0; 
+		opacity: 1;
+	}
 
 	ul {
 		list-style: none;
@@ -62,19 +75,21 @@
 					transition: all 0.25s ease-in-out;
 				}
 
-				&:hover { &:after { width: 100%; } }
-
 				@media (min-width: $medium) {
 					font-size: 6.0rem;
+
+					&:hover { &:after { width: 100%; } }
 				}
 			}
 
-			&:nth-child(1) a:hover { &:after { background-color: purple; } }
-			&:nth-child(2) a:hover { &:after { background-color: crimson; } }
-			&:nth-child(3) a:hover { &:after { background-color: turquoise; } }
-			&:nth-child(4) a:hover { &:after { background-color: limegreen; } }
-			&:nth-child(5) a:hover { &:after { background-color: pink; } }
-			&:nth-child(6) a:hover { &:after { background-color: cornflowerblue; } }
+			@media (min-width: $medium) {
+				&:nth-child(1) a:hover { &:after { background-color: purple; } }
+				&:nth-child(2) a:hover { &:after { background-color: crimson; } }
+				&:nth-child(3) a:hover { &:after { background-color: turquoise; } }
+				&:nth-child(4) a:hover { &:after { background-color: limegreen; } }
+				&:nth-child(5) a:hover { &:after { background-color: pink; } }
+				&:nth-child(6) a:hover { &:after { background-color: cornflowerblue; } }
+			}
 
 			&.current-menu-item a {
 				&:after {
@@ -86,7 +101,9 @@
 					transition: all 0.25s ease-in-out;
 				}
 
-				&:hover:after { background-color: $color-white; }
+				@media (min-width: $medium) {
+					&:hover:after { background-color: $color-white; }
+				}
 			}
 		}
 	}

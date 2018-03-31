@@ -3,14 +3,16 @@
 {% include 'html-header.twig' %}
 	{% block head %}
 	{% endblock %}
-	{% if menuColor %}<style>::selection{background:{{menuColor}};}*{color:{{menuColor}};}</style>{% endif %}
+	{% if menuColor %}<style>::selection{background:{{menuColor}};}*:not(.block *){color:{{menuColor}};}</style>{% endif %}
 	</head>
 {% endblock %}
 
 	<body 
 		class="{{body_class}}" 
 		data-template="base.twig" 
-		{% if bgColor %}style="background-color:{{bgColor}};"{% endif %}>
+		style="{% if bgColor %}background-color:{{bgColor}};{% endif %}
+		{% if bgGradient %}{{bgGradient}}{% endif %}
+		{% if bgImage %}background-image:url({{TimberImage(bgImage).src}});{% endif %}">
 		
 		{% block header %}
 			{% include 'components/header.twig' %}
@@ -33,9 +35,9 @@
 		</section>
 
 		{% block footer %}
-			<footer id="footer">
+			{# <footer id="footer">
 				{% include 'footer.twig' %}
-			</footer>
+			</footer> #}
 			{{ function('wp_footer') }}
 		{% endblock %}
 

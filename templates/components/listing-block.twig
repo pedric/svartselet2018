@@ -1,0 +1,12 @@
+
+<div 
+	class="block block--listing grid-col grid-col-{{width}}" 
+	style="background-color:{{bgColor}};color:{{color}};align-items:center;justify-content:center;text-align:center;min-height:{{height}};">
+
+	<div class="block__bgImage" style="background-image:url({{TimberImage(item.thumbnail).src}});"></div>
+
+	<div class="block__content reveal {{textModifier}}">
+		<h2><a class="block__blockLink" href="{{item.link}}">{{ item.title }}</a></h2>
+	</div>
+	
+</div>

@@ -1,1 +1,39 @@
+{% if relatedPosts %}
+	<div class="row">
+		{% for item in relatedPosts %}
+
+		<div 
+			class="block grid-col grid-col-{{item.width}}" 
+			style="color:{{menuColor}};">
+
+			{% if item.thumbnail %}
+				<div class="block__bgImage" style="background-image:url({{TimberImage(item.thumbnail).src}});"></div>
+			{% endif %}
+
+			<div class="block__content {% if item.reveal %}reveal{% endif %} {% if item.large_heading %}block__content--largeTitle{% endif %}">
+
+				<a class="block__blockLink" href="{{item.path}}">
+				
+					{% if item.post_title %}
+						<h3>{{ item.post_title }}</h3>
+					{% endif %}
+
+				</a>
+
+				{% if item.embed %}
+					<div class="u-responsive-iframe-wrapper">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/{{item.embed}}?rel=0&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					</div>
+				{% endif %}
+
+				{% if item.link.title %}<a class="block__link" href="{{item.link.url}}">{{ item.link.title }}</a>{% endif %}
+
+			</div>
+		</div>
+
+		{% endfor %}
+	</div>
+{% endif %}
+
+{# <pre style="color:black;">{{ dump(relatedPosts) }}</pre> #}
 {# Copyright {{"now"|date('Y')}} #}

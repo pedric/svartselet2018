@@ -11,7 +11,10 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: $font-regular;
-  color: #222; }
+  color: #222;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center; }
 
 *, *:before, *:after {
   box-sizing: inherit;

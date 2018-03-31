@@ -3,6 +3,12 @@
 	display: flex;
 	padding: 48px 32px;
 
+	// Force grid-col-100 to have more max-width
+	// &.grid-col.grid-col-100 .block__content { max-width: 800px; }
+
+	// Make space for the header
+	&:first-child:not(.block--listing) { padding-top: 100px; }
+
 	&.block--desktopOnly {
 		@media (max-width: $medium) {
 			display: none;
@@ -41,6 +47,11 @@
 			margin: 0;
 			font-family: 'IBM Plex Sans';
 			font-weight: 100; 
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
 		}
 	}
 

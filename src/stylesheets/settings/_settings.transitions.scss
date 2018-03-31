@@ -5,3 +5,30 @@
 $transition-ease: ease-out !default;
 $transition-duration: .15s !default;
 $transition-duration-slow: .25s !default;
+
+@keyframes swim {
+    0%   { transform: rotate(0deg); }
+    50%  { transform: rotate(1deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes openMenu {
+	// 0% { top: 100vh; }
+	// 100% { top: 0; opacity: 1; }
+}
+
+@keyframes switchFish {
+	0% { opacity: 0; }
+	40% { opacity: 0; }
+	50% { opacity: 1; }
+	90% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@keyframes switchText {
+	0% { opacity: 1; }
+	40% { opacity: 1; }
+	50% { opacity: 0; }
+	90% { opacity: 0; }
+	100% { opacity: 1; }
+}

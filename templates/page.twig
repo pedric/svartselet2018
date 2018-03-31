@@ -7,8 +7,34 @@
 			<h1 class="articleTitle u-visually-hidden">{{ post.title }}</h1>
 			
 			<div class="row">
-				{% include 'components/dynamic-block.twig' %}
+
+				{% for item in blocks %}
+					{% include 'components/dynamic-block.twig' %}
+				{% endfor %}
+
+				{% if relatedPosts %}
+					<div 
+						class="block block--listing grid-col grid-col-100" 
+						style="align-items:flex-end;justify-content:center;text-align:center;min-height:50vh;">
+						<div class="block__content reveal">
+							<h2 {% if menuColor %}style="color:{{menuColor}};"{% endif %}>Related</h2>
+						</div>
+					</div>
+					{% for item in relatedPosts %}
+						{% include 'components/listing-block.twig' with {
+							width: '100',
+							height: 'auto',
+							bgColor: 'rgba(0,0,0,0.5)',
+							color: '#fff',
+							textModifier: ''
+						} %}
+					{% endfor %}
+				{% endif %}
+			
 			</div>
+
+			{# bgColor: item.bg_color,
+			color: item.menu_color #}
 
 		</article>
 	</div>

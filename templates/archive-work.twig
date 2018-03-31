@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	
+	<div class="contentWrapper">
+		<h1 class="articleTitle u-visually-hidden">{{ post.title }}</h1>
+		<div class="row">
+			
+			{% for item in blocks %}
+				{% include 'components/dynamic-block.twig' %}
+			{% endfor %}
+
+			{% for item in posts %}
+				{% include 'components/listing-block.twig' with {
+					width: '50',
+					height: '50vw',
+					bgColor: 'rgba(0,0,0,0.5)',
+					color: '#fff'
+				} %}
+			{% endfor %}
+
+		</div>
+	</div>
+	
+{# 	{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %} #}
+{% endblock %}

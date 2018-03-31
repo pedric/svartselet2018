@@ -1,38 +1,41 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-			<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
-			<section class="article-content">
-				<h1 class="article-h1">{{ post.title }}</h1>
-				<p class="blog-author">
-					<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.date }}
-				</p>
-				<div class="article-body">
-					{{post.content}}
-				</div>
-			</section>
+	<div class="contentWrapper">
+		<article class="postType postType--{{ post.post_type }}" id="post-{{ post.ID }}">
+			
+			<h1 class="articleTitle u-visually-hidden">{{ post.title }}</h1>
+			
+			<div class="row">
 
-			<!-- comment box -->
-			<section class="comment-box">
-				<!-- comments -->
-				<div class="comments">
-				    {% if post.comments %}
-					<h3> comments </h3>
-					{% for cmt in post.comments %}
-					    {% include "comment.twig" with {comment:cmt} %}
+				{% for item in blocks %}
+					{% include 'components/dynamic-block.twig' %}
+				{% endfor %}
+
+				{% if relatedPosts %}
+					<div 
+						class="block block--listing grid-col grid-col-100" 
+						style="align-items:flex-end;justify-content:center;text-align:center;min-height:50vh;">
+						<div class="block__content reveal">
+							<h2 {% if menuColor %}style="color:{{menuColor}};"{% endif %}>Related</h2>
+						</div>
+					</div>
+					{% for item in relatedPosts %}
+						{% include 'components/listing-block.twig' with {
+							width: '100',
+							height: 'auto',
+							bgColor: 'rgba(0,0,0,0.5)',
+							color: '#fff',
+							textModifier: ''
+						} %}
 					{% endfor %}
-				    {% endif %}
-				</div>
-
-				{% if post.comment_status == "closed" %}
-					<p> comments for this post are closed </p>
-				{% else %}
-				    <!-- comment form -->
-				    {% include "comment-form.twig" %}
 				{% endif %}
-			</section>
+
+			</div>
+
+			{# bgColor: item.bg_color,
+			color: item.menu_color #}
+
 		</article>
-	</div><!-- /content-wrapper -->
+	</div>
 {% endblock %}

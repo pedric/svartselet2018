@@ -95,6 +95,10 @@ class StarterSite extends TimberSite {
 		$context['menuColor'] = $color;
 		$bg_color = get_field('bg_color');
 		$context['bgColor'] = $bg_color;
+		$bg_gradient = get_field('bg_gradient');
+		$context['bgGradient'] = $bg_gradient;
+		$bg_image = get_field('bg_image');
+		$context['bgImage'] = $bg_image;		
 		// Page settings open graph
 		$ogTitle = get_field('share_title');
 		$context['ogTitle'] = $ogTitle;

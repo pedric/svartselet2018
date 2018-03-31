@@ -7,7 +7,9 @@
 			<h1 class="articleTitle u-visually-hidden">{{ post.title }}</h1>
 			
 			<div class="row">
-				{% include 'components/dynamic-block.twig' %}
+				{% for item in blocks %}
+					{% include 'components/dynamic-block.twig' %}
+				{% endfor %}
 			</div>
 
 		</article>

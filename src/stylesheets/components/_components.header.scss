@@ -1,3 +1,4 @@
+
 .header {
   position: absolute;
   height: 100px;
@@ -11,13 +12,22 @@
   z-index: 9999;
 
 	.logoLink {
+    position: relative;
 		width: 110px;
-    padding: $spacing 0;
-    height: 56px;
+    height: 40px;
     border-bottom: none;
 	}
 
-  .logoSvg { transition: all 0.25s ease-in-out; }
+  .logoSvg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotate(0deg)translate(-50%, -50%);
+    transition: all 0.25s ease-in-out;
+
+    &--fish { animation: switchFish 20s infinite; }
+    &--text { animation: switchText 20s infinite; }
+  }
 
   &.active {
     .logoSvg { fill: $color-white !important; }
